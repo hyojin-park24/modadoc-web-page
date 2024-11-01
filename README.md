@@ -1,6 +1,7 @@
 # 모다독 홍보 홈페이지
 모다독 북스터디 홍보 웹 페이지 개발 2024.08 ~ 2024.10 (3人 팀 프로젝트)   
-▷ 현재 (2024.10 말~ ) DB에 저장된 '멤버사진'과 SubPage1 에서 보일 '활동사진' 을 비교해서 '멤버 이외의 얼굴' 은 모자이크 처리하는 기능도 구현을 목표로 딥러닝 기반의 얼굴 인식 모델을 사용하기 위한 학습 및 코드 전체 정리중 ... ing   
+▷ 현재 (2024.10 말~ ) DB에 저장된 '멤버사진'과 SubPage1 에서 보일 '활동사진' 을 비교해서 '멤버 이외의 얼굴' 은 모자이크 처리하는 기능도 구현을 목표로    
+   딥러닝 기반의 얼굴 인식 모델을 사용하기 위한 학습 및 코드 전체 정리중 ... ing   
 
 ---   
 ![모다독 홈페이지](https://github.com/user-attachments/assets/10d92d1e-0f41-41a6-8b89-915cde41f03c) |![subPage1](https://github.com/user-attachments/assets/c97381cc-1699-46c1-a0bf-0f0b024c946b) | ![subPage2](https://github.com/user-attachments/assets/1a785254-1e45-438b-ae85-08f3ab79e3c2) | ![UploadPage](https://github.com/user-attachments/assets/4411cd44-4793-4a95-9ca3-72445736edf8)
