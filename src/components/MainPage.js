@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 import styled from 'styled-components';
 
 const Container = styled.div`
@@ -36,7 +37,7 @@ const BookItem = styled(Link)`
   color: #333;
   font-size: 1rem;
   transition: transform 0.3s;
-
+  
   &:hover {
     transform: scale(1.05);
   }
@@ -56,16 +57,17 @@ const NavLink = styled(Link)`
 `;
 
 function MainPage() {
-    const books = [
-        { id: 1, name: "The Goal" },
-        { id: 2, name: "IT 지식" },
-        { id: 3, name: "인간 관계론" },
-        // 임시로 몇 개의 책 데이터를 추가합니다.
-    ];
+    const [books, setBooks] = useState([]);
+
+    useEffect(() => {
+        axios.get('/api/books')
+            .then(response => setBooks(response.data))
+            .catch(error => console.error('Error fetching books:', error));
+    }, []);
 
     return (
         <Container>
-            <Title>모다독 - 함께하는 독서</Title>
+            <Title>모다독 - 모여서 다같이 독서</Title>
             <BookList>
                 {books.map(book => (
                     <BookItem to={`/book/${book.id}`} key={book.id}>
