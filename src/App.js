@@ -6,16 +6,18 @@ import SubPage2 from './components/SubPage2';
 import UploadPage from './components/UploadPage';
 
 function App() {
-  return (
-      <Router>
-        <Routes>
-          <Route path="/" element={<MainPage />} />
-          <Route path="/book/:id" element={<SubPage1 />} />
-          <Route path="/members" element={<SubPage2 />} />
-          <Route path="/upload" element={<UploadPage />} />
-        </Routes>
-      </Router>
-  );
+    return (
+        <>
+            <Router>
+                <Routes>
+                    <Route path="/" element={<MainPage />} />
+                    <Route path="/book/:id" element={<SubPage1 />} />
+                    <Route path="/members" element={<SubPage2 />} />
+                    <Route path="/upload" element={<UploadPage />} />
+                </Routes>
+            </Router>
+        </>
+    );
 }
 
 export default App;

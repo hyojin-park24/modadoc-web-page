@@ -7,14 +7,20 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 20px;
+  padding: 10px;
   background-color: #f0f4f8;
 `;
 
 const Title = styled.h1`
-  color: #3a5a40;
-  font-size: 2.5rem;
-  margin-bottom: 20px;
+    color: #c6edff;
+    font-family : 'Bagel Fat One', sans-serif;  
+    font-size: 20px;
+    margin-bottom: 20px;
+    text-shadow:
+            -3px 0px #2dbdff, 
+            1px 2px #2dbdff, 
+            1px 0px #2dbdff,
+            0px -1px #2dbdff;
 `;
 
 const BookList = styled.div`
@@ -67,7 +73,8 @@ function MainPage() {
 
     return (
         <Container>
-            <Title>모다독 - 모여서 다같이 독서</Title>
+            <Title>모다독</Title>
+            <p>모여서 다같이 독서</p >
             <BookList>
                 {books.map(book => (
                     <BookItem to={`/book/${book.id}`} key={book.id}>
