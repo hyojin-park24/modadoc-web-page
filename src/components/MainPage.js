@@ -2,64 +2,59 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import styled from 'styled-components';
+import { FaArrowLeft, FaUserFriends, FaBookMedical } from 'react-icons/fa';
 
-const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 10px;
-  background-color: #f0f4f8;
+const Header = styled.header`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    background-color: #ffffff;
 `;
 
 const Title = styled.h1`
     color: #c6edff;
-    font-family : 'Bagel Fat One', sans-serif;  
+    font-family: 'Bagel Fat One', sans-serif;
+    font-size: 48px;
+    margin: 0;
+    text-shadow: -2px -2px #2dbdff, 2px 2px #2dbdff, -2px 2px #2dbdff, 2px -2px #2dbdff;
+`;
+
+const Subtitle = styled.p`
     font-size: 20px;
-    margin-bottom: 20px;
-    text-shadow:
-            -3px 0px #2dbdff, 
-            1px 2px #2dbdff, 
-            1px 0px #2dbdff,
-            0px -1px #2dbdff;
+    color: #333;
+    margin: 5px 0;
 `;
 
-const BookList = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
+const NavBarContainer = styled.div`
+    width: 100%; /* 전체 너비 */
+    border-top: 1px solid #ddd;
+    margin-top: 10px;
+    padding-top: 10px;
 `;
 
-const BookItem = styled(Link)`
-  width: 150px;
-  height: 200px;
-  background-color: #fff;
-  border: 1px solid #ddd;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-  text-align: center;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-decoration: none;
-  color: #333;
-  font-size: 1rem;
-  transition: transform 0.3s;
-  
-  &:hover {
-    transform: scale(1.05);
-  }
+const NavBar = styled.nav`
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 30px;
+    padding-right: 20px; /* 오른쪽 여백 */
 `;
 
 const NavLink = styled(Link)`
-  margin-top: 20px;
-  padding: 10px 20px;
-  color: #fff;
-  background-color: #3a5a40;
-  text-decoration: none;
-  border-radius: 5px;
+    display: flex;
+    align-items: center;
+    color: #333;
+    font-size: 18px;
+    text-decoration: none;
 
-  &:hover {
-    background-color: #4a6a4f;
-  }
+    &:hover {
+        color: #2dbdff;
+    }
+
+    svg {
+        margin-right: 8px;
+    }
 `;
 
 function MainPage() {
@@ -72,19 +67,29 @@ function MainPage() {
     }, []);
 
     return (
-        <Container>
-            <Title>모다독</Title>
-            <p>모여서 다같이 독서</p >
-            <BookList>
-                {books.map(book => (
-                    <BookItem to={`/book/${book.id}`} key={book.id}>
-                        {book.name}
-                    </BookItem>
-                ))}
-            </BookList>
-            <NavLink to="/members">Members</NavLink>
-            <NavLink to="/upload">Submit your book</NavLink>
-        </Container>
+        <>
+            <Header>
+                <Title>모다독</Title>
+                <Subtitle>모여서 다같이 독서</Subtitle>
+                <NavBarContainer>
+                    <NavBar>
+                        <NavLink to="/">
+                            <FaArrowLeft /> back to list
+                        </NavLink>
+                        <NavLink to="/members">
+                            <FaUserFriends /> Members
+                        </NavLink>
+                        <NavLink to="/upload">
+                            <FaBookMedical /> Submit your books
+                        </NavLink>
+                    </NavBar>
+                </NavBarContainer>
+            </Header>
+            <div>
+                {/* Content goes here */}
+                <p>여기에 콘텐츠가 들어갑니다.</p>
+            </div>
+        </>
     );
 }
 
