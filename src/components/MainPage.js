@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 import styled from 'styled-components';
 import { FaArrowLeft, FaUserFriends, FaBookMedical } from 'react-icons/fa';
+import SubPage1 from "./SubPage1";
 
 // 전체 레이아웃을 Flexbox로 설정
 const PageContainer = styled.div`
@@ -67,6 +68,30 @@ const NavLink = styled(Link)`
 `;
 
 // 메인 컨텐트 스타일 컴포넌트
+
+const Modal = styled.div`
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+`;
+
+const ModalContent = styled.div`
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    width: 80%;
+    max-width: 600px;
+    max-height: 80%;
+    overflow-y: auto;
+`;
+
 const Content = styled.div`
     flex: 1; /* 여유 공간을 차지하여 Footer가 하단에 고정되도록 함 */
     display: grid;
@@ -80,7 +105,7 @@ const Content = styled.div`
 `;
 
 
-const BookCard = styled.div`
+const BookCard = styled(Link)`
     width: 300px;
     height: 450px;
     background-color: rgba(130, 186, 244, 0.75);
@@ -91,6 +116,7 @@ const BookCard = styled.div`
     flex-direction: column;
     align-items: center;
     padding: 20px;
+    cursor: pointer;    /* 클릭 가능한 스타일 */
 `;
 
 const BookImage = styled.img`
@@ -141,7 +167,7 @@ const FooterLink = styled.a`
 
 function MainPage() {
     const [books, setBooks] = useState([]);
-
+    // 책 이미지 api
     useEffect(() => {
         axios.get('http://localhost:5000/books')
             .then(response => setBooks(response.data))
@@ -169,7 +195,7 @@ function MainPage() {
             </Header>
             <Content>
                 {books.map(book =>(
-                    <BookCard key={book.id}>
+                    <BookCard to={`/book/${book.id}`} key={book.id}>
                         <BookImage src={book.image} alt={book.title}/>
                     </BookCard>
                 ))}

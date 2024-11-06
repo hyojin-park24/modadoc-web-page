@@ -1,33 +1,57 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import axios from 'axios';
 import styled from 'styled-components';
+import { FaUserFriends, FaArrowLeft, FaBookMedical } from "react-icons/fa";
 
 const Container = styled.div`
-    padding: 20px;
-    background-color: #d3e4cd;
     display: flex;
+    background-color: #d3e4cd;
     flex-direction: column;
     align-items: center;
+    padding: 20px;
 `;
 
-const Title = styled.h1`
-    color: #2c3e50;
-    font-size: 2rem;
-    margin-bottom: 20px;
+// NavBar 스타일
+const NavBar = styled.nav`
+    display: flex;
+    justify-content: flex-end;
+    gap: 30px;
+    padding: 10px;
+    width: 100%;
+    max-width: 1200px;
+    background-color: #ffffff;
 `;
 
-const Image = styled.img`
+const NavLink = styled(Link)`
+    display: flex;
+    align-items: center;
+    color: #333;
+    text-decoration: none;
+    &:hover {
+        color: #2dbdff;
+    }
+
+    svg {
+        margin-right: 8px;
+    }
+`;
+
+const ImageContainer = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 20px;
+`;
+
+const ActivityImage = styled.img`
     width: 100%;
     max-width: 600px;
-    margin-bottom: 20px;
-    border-radius: 10px;
-`;
-
-const Description = styled.p`
-    color: #555;
-    font-size: 1.2rem;
-    text-align: center;
+    border-radius: 8px;
 `;
 
 function SubPage1() {
@@ -35,18 +59,31 @@ function SubPage1() {
     const [book, setBook] = useState(null);
 
     useEffect(() => {
-        axios.get(`/api/books/${id}`)
+        console.log("Fetched bookId:", id); // bookId 확인
+        axios.get(`http://localhost:5000/books/${id}`)
             .then(response => setBook(response.data))
             .catch(error => console.error('Error fetching book:', error));
     }, [id]);
+
 
     if (!book) return <div>Loading...</div>;
 
     return (
         <Container>
-            <Title>{book.name}</Title>
-            <Image src={book.activityImageUrl} alt="Activity" />
-            <Description>{book.description}</Description>
+            <NavBar>
+                <NavLink to="/">
+                    <FaArrowLeft /> back to list
+                </NavLink>
+                <NavLink to="/members">
+                    <FaUserFriends /> Members
+                </NavLink>
+                <NavLink to="/upload">
+                    <FaBookMedical /> Submit your books
+                </NavLink>
+            </NavBar>
+            <ImageContainer>
+                <ActivityImage src={book.activityImageUrl} alt="Activity" />
+            </ImageContainer>
         </Container>
     );
 }

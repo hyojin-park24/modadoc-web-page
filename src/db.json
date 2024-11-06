@@ -1,13 +1,50 @@
 {
   "books": [
-    { "id": 1, "title": "The Goal", "image": "https://image.aladin.co.kr/product/19832/27/cover500/k752635242_1.jpg" },
-    { "id": 2, "title": "IT Knowledge", "image": "https://image.aladin.co.kr/product/24606/45/cover500/k662631176_1.jpg" },
-    { "id": 3, "title": "Human Relations", "image": "https://image.aladin.co.kr/product/20945/79/cover500/s652933016_1.jpg" },
-    { "id": 4, "title": "Making AI Work", "image": "https://image.aladin.co.kr/product/32764/53/cover500/k202936283_1.jpg" },
-    { "id": 5, "title": "Intellectual Conversation", "image": "https://image.aladin.co.kr/product/22872/79/cover500/k992636841_2.jpg" },
-    { "id": 6, "title": "Nine Algorithms", "image": "https://image.aladin.co.kr/product/2683/75/cover500/8960774383_1.jpg" },
-    { "id": 7, "title": "Insight Power", "image": "https://image.aladin.co.kr/product/7057/11/cover500/k362434286_1.jpg" },
-    { "id": 8, "title": "Don't Think", "image": "https://image.aladin.co.kr/product/25154/98/cover500/8935213268_1.jpg" },
-    { "id": 9, "title": "Enduring Life", "image": "https://image.aladin.co.kr/product/33406/20/cover500/8976046528_1.jpg" }
+    {
+      "id": 1,
+      "title": "The Goal",
+      "image": "https://image.aladin.co.kr/product/19832/27/cover500/k752635242_1.jpg",
+      "activityImageUrl":"/images/activity1.jpg"
+    },
+    {
+      "id": 2,
+      "title": "IT Knowledge",
+      "image": "https://image.aladin.co.kr/product/24606/45/cover500/k662631176_1.jpg"
+    },
+    {
+      "id": 3,
+      "title": "Human Relations",
+      "image": "https://image.aladin.co.kr/product/20945/79/cover500/s652933016_1.jpg"
+    },
+    {
+      "id": 4,
+      "title": "Making AI Work",
+      "image": "https://image.aladin.co.kr/product/32764/53/cover500/k202936283_1.jpg"
+    },
+    {
+      "id": 5,
+      "title": "Intellectual Conversation",
+      "image": "https://image.aladin.co.kr/product/22872/79/cover500/k992636841_2.jpg"
+    },
+    {
+      "id": 6,
+      "title": "Nine Algorithms",
+      "image": "https://image.aladin.co.kr/product/2683/75/cover500/8960774383_1.jpg"
+    },
+    {
+      "id": 7,
+      "title": "Insight Power",
+      "image": "https://image.aladin.co.kr/product/7057/11/cover500/k362434286_1.jpg"
+    },
+    {
+      "id": 8,
+      "title": "Don't Think",
+      "image": "https://image.aladin.co.kr/product/25154/98/cover500/8935213268_1.jpg"
+    },
+    {
+      "id": 9,
+      "title": "Enduring Life",
+      "image": "https://image.aladin.co.kr/product/33406/20/cover500/8976046528_1.jpg"
+    }
   ]
 }
