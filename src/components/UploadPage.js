@@ -75,7 +75,10 @@ function UploadPage() {
         const data = new FormData();
         Object.keys(formData).forEach(key => data.append(key, formData[key]));
 
-        axios.post('/api/upload', data)
+        axios.post('/api/upload', {
+            fullName: formData.fullName,
+            email: formData.email
+        })
             .then(response => alert('Book uploaded successfully!'))
             .catch(error => console.error('Error uploading book:', error));
     };
